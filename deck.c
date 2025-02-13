@@ -1,7 +1,7 @@
 // Create 52 Card Deck array
 
 #include <stdlib.h>
-
+#include <stdio.h>
 //suits
 // 0 = Spade
 // 1 = Heart
@@ -20,12 +20,58 @@
 // 13 = K;
 
 
-struct card{
+
+	struct card{
 	int suit;
 	int rank;
 	char* name;
 	
 };
+
+char* get_suit(struct card);
+
+
+int main()
+{
+
+	
+	int count = 0;
+	struct card myDeck[51];
+	
+	//populate deck
+	
+	for(int i = 0; i < 4; i++)
+	{
+		for(int k = 0; k < 13; k++)
+		{
+			
+
+			myDeck[count].rank = k + 1;
+			myDeck[count].suit = i;
+			count++;
+			
+		}	
+		
+			
+	}
+	
+	
+	
+	for(int i = 0; i < 52; i++) //print deck
+	{
+		printf("Count: %d suit: %s rank: %d \n", i, get_suit(myDeck[i]), myDeck[i].rank);
+	}
+	
+	
+	
+	
+
+	
+	return 0;
+}
+
+
+
 
 
 struct card updateCardrank(struct card in, int new_rank)
@@ -38,32 +84,32 @@ struct card updateCardrank(struct card in, int new_rank)
 
 char* get_suit(struct card in)
 {
-	char* suit = malloc(sizeof(7*char));
+	char* suit = malloc(sizeof(6*'a'));
 	
 	switch(in.suit){
 	case 0:
-	{
-		for(int i = 0; i <= sizeof("Spades"); i++)
-		{
-			suit[i] = "Spades";
-		} 
+	{	
+		suit = "Spades";
+		return suit;
 	}
 	case 1:
-			for(int i = 0; i <= sizeof("Hearts"); i++)
-		{
-			suit[i] = "Hearts";
-		} 
+	{
+		suit = "Hearts";
+		return suit;
+	}	
 	case 2:
-			for(int i = 0; i <= sizeof("Hearts"); i++)
-		{
-			suit[i] = "Hearts";
-		} 
+	{
+		suit = "Clubs";
+		return suit;
+}
 	case 3:
-			for(int i = 0; i <= sizeof("Hearts"); i++)
-		{
-			suit[i] = "Hearts";
-		} 
-	}
-	
+	{
+	suit = "Diamonds";
 	return suit;
+}
+	}
+
+
+	
+	return "Error";
 }
