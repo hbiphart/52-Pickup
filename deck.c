@@ -1,6 +1,6 @@
 // Create 52 Card Deck array
 
-
+#include <stdlib.h>
 
 //suits
 // 0 = Spade
@@ -8,7 +8,7 @@
 // 2 = Club
 // 3 = Diamond
 
-colors
+//colors
 // 0 || 2 = Black
 // 1 || 3 = Red
 
@@ -23,29 +23,47 @@ colors
 struct card{
 	int suit;
 	int rank;
-	char *name = '%rank of %suit';
+	char* name;
 	
 };
 
 
-card updateCardrank(card in, int new_rank)
+struct card updateCardrank(struct card in, int new_rank)
 {
 	in.rank = new_rank;
 
 	return in;
 	
-}
+};
 
-char* get_suit(card in)
+char* get_suit(struct card in)
 {
 	char* suit = malloc(sizeof(7*char));
 	
-	case(in.suit)
-	0:
-	1:
-	2:
-	3:
-	
+	switch(in.suit){
+	case 0:
+	{
+		for(int i = 0; i <= sizeof("Spades"); i++)
+		{
+			suit[i] = "Spades";
+		} 
+	}
+	case 1:
+			for(int i = 0; i <= sizeof("Hearts"); i++)
+		{
+			suit[i] = "Hearts";
+		} 
+	case 2:
+			for(int i = 0; i <= sizeof("Hearts"); i++)
+		{
+			suit[i] = "Hearts";
+		} 
+	case 3:
+			for(int i = 0; i <= sizeof("Hearts"); i++)
+		{
+			suit[i] = "Hearts";
+		} 
+	}
 	
 	return suit;
 }
