@@ -27,8 +27,10 @@
 	char* name;
 	
 };
-
+char* get_rank(int card);
 char* get_suit(struct card);
+
+
 
 
 int main()
@@ -36,30 +38,19 @@ int main()
 
 	
 	int count = 0;
-	struct card myDeck[51];
+	struct card myDeck[52];
+	
+	myDeck.populate();
 	
 	//populate deck
 	
-	for(int i = 0; i < 4; i++)
-	{
-		for(int k = 0; k < 13; k++)
-		{
-			
-
-			myDeck[count].rank = k + 1;
-			myDeck[count].suit = i;
-			count++;
-			
-		}	
-		
-			
-	}
+	
 	
 	
 	
 	for(int i = 0; i < 52; i++) //print deck
 	{
-		printf("Count: %d suit: %s rank: %d \n", i, get_suit(myDeck[i]), myDeck[i].rank);
+		printf("Count: %d suit: %s rank: %s \n", i, get_suit(myDeck[i]), get_rank(myDeck[i].rank));
 	}
 	
 	
@@ -71,6 +62,82 @@ int main()
 }
 
 
+
+
+
+char* get_rank(int in){
+	char* rank = malloc(sizeof(5*'a'));
+	
+	switch(in){
+	case 1:
+	{	
+		rank = "Ace";
+		return rank;
+	}
+	case 2:
+	{
+		rank = "2";
+		return rank;
+	}	
+	case 3:
+	{
+		rank = "3";
+		return rank;
+	}
+	case 4:
+	{
+		rank = "4";
+		return rank;
+	}
+	case 5:
+	{
+		rank = "5";
+		return rank;
+	}
+	case 6:
+	{
+		rank = "6";
+		return rank;
+	}
+	case 7:
+	{
+		rank = "7";
+		return rank;
+	}
+	case 8:
+	{
+		rank = "8";
+		return rank;
+	}
+	case 9:
+	{
+		rank = "9";
+		return rank;
+	}
+	case 10:
+	{
+		rank = "10";
+		return rank;
+	}
+	case 11:
+	{
+		rank = "Jack";
+		return rank;
+	}
+	case 12:
+	{
+		rank = "Queen";
+		return rank;
+	}
+	case 13:
+	{
+		rank = "King";
+		return rank;
+	}
+	}
+
+	return "Error";
+}
 
 
 
@@ -113,3 +180,12 @@ char* get_suit(struct card in)
 	
 	return "Error";
 }
+
+void populate(struct card in)
+{
+	
+
+
+	
+}
+
